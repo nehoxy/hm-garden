@@ -1,4 +1,29 @@
+.container{
+    margin-right: 1rem;
+    margin-left: 1rem;
+}
+
 .titulo{
+    margin-left: 1rem;
+    margin-top:1rem;
     color:#7F5E4A;
     font-family: 'Kameron', serif;
+}
+
+.imagen-hoja{
+    transform: rotate(-40deg);
+    opacity: 1;
+    position: fixed;
+    top:-60px;
+    right: -80px;
+    filter: brightness(0.8);
+    
+}
+
+.inputprueba{
+    border: none;
+    background: transparent;
+    color: white; /* Cambia el color del texto según tu necesidad */
+    font-size: 16px;
+    padding: 10px;
 }
