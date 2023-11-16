@@ -18,7 +18,7 @@
       fill="translucent"
       label="Usuario"
       labelPlacement="floating"
-      helperText="Enter a valid email"
+      helperText="Ingrese un nombre de usuario"
       email
       ></ion-input>
       <ion-input
@@ -26,7 +26,7 @@
       fill="translucent"
       label="Email"
       labelPlacement="floating"
-      helperText="Enter a valid email"
+      helperText="Ingrese un email"
       email
       ></ion-input>
       <ion-input
@@ -34,7 +34,16 @@
       fill="translucent"
       label="Contraseña"
       labelPlacement="floating"
-      helperText="Enter a valid email"
+      helperText="Ingrese una contraseña"
+
+      email
+      ></ion-input>
+      <ion-input
+      type="email"
+      fill="translucent"
+      label="Contraseña"
+      labelPlacement="floating"
+      helperText="Repita la contraseña"
 
       email
       ></ion-input>
@@ -42,5 +51,11 @@
 
       <ion-button color="secondary" text-capitalize shape="round" class="boton mt-4" expand="block">Registrate</ion-button>
     </form>
+    <ion-row class="ion-justify-content-center mt-3 mx-auto">
+      <ion-col>
+        <p class="texto mx-auto">Ya tenes cuenta? <a routerLink="../login">Inicia sesión</a></p>
+      </ion-col>
+</ion-row>
+    
   </div>
 </ion-content>
