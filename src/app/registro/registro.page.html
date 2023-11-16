@@ -10,7 +10,7 @@
   <h1 class="titulo mb-5"> Registro </h1>
   <img class="imagen-hoja" src="../../assets/images/clip-art-7157638_1280.png" alt="">
   <div class="container">
-    <form action="">
+    <form  [formGroup]="formRegistro" (ngSubmit)="registrarse()">
       
       <ion-input
       type="email"
@@ -19,7 +19,7 @@
       labelPlacement="floating"
       helperText="Ingrese un nombre de usuario"
       email
-      ></ion-input>
+      [(ngModel)]="usuarios.nombre" [formControl]="formRegistro.controls.nombre"></ion-input>
       <ion-input
       type="email"
       fill="translucent"
@@ -27,16 +27,15 @@
       labelPlacement="floating"
       helperText="Ingrese un email"
       email
-      ></ion-input>
+      [(ngModel)]="usuarios.email" [formControl]="formRegistro.controls.email"></ion-input>
       <ion-input
       type="email"
       fill="translucent"
       label="Contraseña"
       labelPlacement="floating"
       helperText="Ingrese una contraseña"
-
       email
-      ></ion-input>
+      [(ngModel)]="usuarios.contrasena" [formControl]="formRegistro.controls.contrasena" [type]="hidePass ? 'password' : 'text'"></ion-input>
       <ion-input
       type="email"
       fill="translucent"
@@ -45,7 +44,7 @@
       helperText="Repita la contraseña"
 
       email
-      ></ion-input>
+      [formControl]="formRegistro.controls.repetirContrasena" [type]="hidePass ? 'password' : 'text'"></ion-input>
 
 
       <ion-button color="secondary" text-capitalize shape="round" class="boton mt-4" expand="block">Registrate</ion-button>
