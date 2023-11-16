@@ -1,0 +1,45 @@
+a{
+    color: #9faa7b;
+}
+.texto{
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.8;
+}
+.container{
+    margin-right: 1rem;
+    margin-left: 1rem;
+}
+
+.titulo{
+    margin-left: 1rem;
+    margin-top:1rem;
+    color:#7F5E4A;
+    font-family: 'Kameron', serif;
+}
+
+.imagen-hoja{
+    transform: rotateY(180deg);
+    opacity: 1;
+    position: fixed;
+    bottom: 0;
+    right: -80px;
+    filter: brightness(0.8);
+    
+}
+
+.inputprueba{
+    border: none;
+    background: transparent;
+    color: white; /* Cambia el color del texto según tu necesidad */
+    font-size: 16px;
+    padding: 10px;
+}
+
+.boton{
+    margin-right: 3rem;
+    margin-left: 2rem;
+    text-transform: none !important;
+    filter: brightness(0.95);
+    color:white !important;
+}
