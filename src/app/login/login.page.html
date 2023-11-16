@@ -10,9 +10,11 @@
   <h1 class="titulo mb-3"> Login</h1>
   
   <div class="container">
-    <form action="">
+    <form [formGroup]="formLogin" action="">
       
       <ion-input
+      [(ngModel)]="usuarios.email"
+      [formControl]="formLogin.controls.email"
       type="email"
       fill="translucent"
       label="Email"
@@ -21,17 +23,18 @@
       email
       ></ion-input>
       <ion-input
-      type="email"
+      [(ngModel)]="usuarios.contrasena"
+      [formControl]="formLogin.controls.contrasena"
+      type="password"
       fill="translucent"
       label="Contraseña"
       labelPlacement="floating"
       helperText="Ingrese su contraseña"
-
-      email
+      password
       ></ion-input>
     
 
-      <ion-button color="secondary" text-capitalize shape="round" class="boton mt-4" expand="block">Iniciar sesión</ion-button>
+      <ion-button (click)="iniciarSesion()" color="secondary" text-capitalize shape="round" class="boton mt-4" expand="block">Iniciar sesión</ion-button>
     </form>
 
     <ion-row class="ion-justify-content-center mt-3 mx-auto">

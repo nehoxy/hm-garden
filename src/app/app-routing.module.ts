@@ -1,16 +1,41 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { TabsComponent } from './tabs/tabs.component';
 
 const routes: Routes = [
   {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    path: '',
+    component: TabsComponent,
+    children: [
+      {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'home',
+      },
+      {
+        path: 'home',
+        loadChildren: () => import('./home/home.module').then((m) => m.HomePageModule),
+      },
+      {
+        path: 'lupa',
+        loadChildren: () => import('./lupa/lupa.module').then((m) => m.LupaPageModule),
+      },
+      {
+        path: 'notificaciones',
+        loadChildren: () => import('./notificaciones/notificaciones.module').then((m) => m.NotificacionesPageModule),
+      },
+      {
+        path: 'perfil',
+        loadChildren: () => import('./perfil/perfil.module').then((m) => m.PerfilPageModule),
+      },
+    ],
   },
   {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
+    path: '**', // Manejo de rutas no encontradas, puedes personalizar esto según tus necesidades
+    redirectTo: 'login',
   },
+
+  
   {
     path: 'registro',
     loadChildren: () => import('./registro/registro.module').then( m => m.RegistroPageModule)
@@ -19,6 +44,7 @@ const routes: Routes = [
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
+
 ];
 
 @NgModule({

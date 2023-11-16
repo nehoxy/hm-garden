@@ -10,15 +10,17 @@ import { AngularFireModule } from '@angular/fire/compat'; //firestore
 import { AngularFireAuthModule } from '@angular/fire/compat/auth'; //autentificacion
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { environment } from 'src/environments/environment';
+import { TabsComponent } from './tabs/tabs.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent,TabsComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFireStorageModule,
     FormsModule,
     ReactiveFormsModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  exports:[IonicModule],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
