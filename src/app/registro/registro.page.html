@@ -13,12 +13,12 @@
     <form  [formGroup]="formRegistro" (ngSubmit)="registrarse()">
       
       <ion-input
-      type="email"
+      type="name"
       fill="translucent"
       label="Usuario"
       labelPlacement="floating"
       helperText="Ingrese un nombre de usuario"
-      email
+      string
       [(ngModel)]="usuarios.nombre" [formControl]="formRegistro.controls.nombre"></ion-input>
       <ion-input
       type="email"
@@ -29,25 +29,25 @@
       email
       [(ngModel)]="usuarios.email" [formControl]="formRegistro.controls.email"></ion-input>
       <ion-input
-      type="email"
+      type="password"
       fill="translucent"
       label="Contraseña"
       labelPlacement="floating"
       helperText="Ingrese una contraseña"
-      email
+      password
       [(ngModel)]="usuarios.contrasena" [formControl]="formRegistro.controls.contrasena" [type]="hidePass ? 'password' : 'text'"></ion-input>
       <ion-input
-      type="email"
+      type="password"
       fill="translucent"
       label="Contraseña"
       labelPlacement="floating"
       helperText="Repita la contraseña"
-
-      email
+      password
       [formControl]="formRegistro.controls.repetirContrasena" [type]="hidePass ? 'password' : 'text'"></ion-input>
 
 
-      <ion-button color="secondary" text-capitalize shape="round" class="boton mt-4" expand="block">Registrate</ion-button>
+      <ion-button color="secondary" text-capitalize shape="round" class="boton mt-4" expand="block"   
+      (click)="registrarse()" >Registrate</ion-button>
     </form>
     <ion-row class="ion-justify-content-center mt-3 mx-auto">
       <ion-col>
