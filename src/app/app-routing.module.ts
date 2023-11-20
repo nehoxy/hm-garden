@@ -21,6 +21,10 @@ const routes: Routes = [
         loadChildren: () => import('./lupa/lupa.module').then((m) => m.LupaPageModule),
       },
       {
+        path: 'publicar',
+        loadChildren: () => import('./publicar/publicar.module').then( m => m.PublicarPageModule)
+      },
+      {
         path: 'notificaciones',
         loadChildren: () => import('./notificaciones/notificaciones.module').then((m) => m.NotificacionesPageModule),
       },
@@ -42,7 +46,8 @@ const routes: Routes = [
   {
     path:'**',
     redirectTo:'login'
-  }
+  },
+ 
 ];
 
 @NgModule({

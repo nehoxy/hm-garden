@@ -16,6 +16,7 @@ export class HomePage {
       likes: 10,
       comments: 5,
     },
+    
   ]
   constructor() {}
 

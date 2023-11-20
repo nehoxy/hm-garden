@@ -15,6 +15,19 @@
   </ion-card-content>
 
   <!-- Acciones de la publicación (por ejemplo, botones de Me gusta y Comentar) -->
- 
+  <ion-row class="ion-align-items-center">
+    <ion-col>
+      <ion-button fill="clear" (click)="likePost()">
+        <ion-icon name="heart"></ion-icon>
+        {{ likes }}
+      </ion-button>
+    </ion-col>
+    <ion-col>
+      <ion-button fill="clear" (click)="commentPost()">
+        <ion-icon name="chatbubbles"></ion-icon>
+        {{ comments }}
+      </ion-button>
+    </ion-col>
+  </ion-row>
 </ion-card>
 

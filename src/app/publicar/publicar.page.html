@@ -1,0 +1,24 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>publicar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list color="secondary">
+    <ion-item color="secondary">
+      <ion-label position="floating">Título</ion-label>
+      <ion-input [(ngModel)]="postTitle" name="postTitle" type="text"></ion-input>
+    </ion-item>
+    <ion-item color="secondary">
+      <ion-label position="floating">Descripción</ion-label>
+      <ion-textarea [(ngModel)]="postContent" name="postContent"></ion-textarea>
+    </ion-item>
+    <ion-item color="secondary">
+      <ion-label position="floating">Imagen</ion-label>
+      <ion-input [(ngModel)]="postTitle" name="postTitle" type="text"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <ion-button expand="full" (click)="savePost()">Publicar</ion-button>
+</ion-content>
