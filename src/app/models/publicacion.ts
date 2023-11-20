@@ -1,7 +1,7 @@
 export interface Publicacion {
     idPublicacion:string | any,
-    nombre:string,
+    titulo:string,
     descripcion:string,
     imagen:string,
-    date_hour:string,
+    date_hour:string | any,
 }
