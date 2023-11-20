@@ -30,12 +30,7 @@ const routes: Routes = [
       },
     ],
   },
-  {
-    path: '**', // Manejo de rutas no encontradas, puedes personalizar esto según tus necesidades
-    redirectTo: 'login',
-  },
 
-  
   {
     path: 'registro',
     loadChildren: () => import('./registro/registro.module').then( m => m.RegistroPageModule)
@@ -44,7 +39,10 @@ const routes: Routes = [
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
-
+  {
+    path:'**',
+    redirectTo:'login'
+  }
 ];
 
 @NgModule({

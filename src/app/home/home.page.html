@@ -6,25 +6,16 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-tabs>
-    <ion-tab-bar slot="bottom">
-      <ion-tab-button tab="home">
-        <ion-icon name="play-circle"></ion-icon>
-        Listen Now
-      </ion-tab-button>
-      <ion-tab-button tab="radio">
-        <ion-icon name="radio"></ion-icon>
-        Radio
-      </ion-tab-button>
-      <ion-tab-button tab="library">
-        <ion-icon name="library"></ion-icon>
-        Library
-      </ion-tab-button>
-      <ion-tab-button tab="search">
-        <ion-icon name="search"></ion-icon>
-        Search
-      </ion-tab-button>
-    </ion-tab-bar>
-  </ion-tabs>
+<ion-content >
+  <ion-list color="medium">
+    <app-card-publicacion *ngFor="let post of posts"
+              [profileImage]="post.profileImage"
+              [username]="post.username"
+              [timestamp]="post.timestamp"
+              [postImage]="post.postImage"
+              [caption]="post.caption"
+              [likes]="post.likes"
+              [comments]="post.comments">
+    </app-card-publicacion>
+  </ion-list>
 </ion-content>

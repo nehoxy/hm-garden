@@ -1,0 +1,20 @@
+<ion-card color="secondary">
+  <!-- Cabecera de la publicación -->
+  <ion-card-header>
+    <ion-thumbnail slot="start">
+      <ion-img src="{{ profileImage }}"></ion-img>
+    </ion-thumbnail>
+    <ion-card-title>{{ username }}</ion-card-title>
+    <ion-card-subtitle>{{ timestamp }}</ion-card-subtitle>
+  </ion-card-header>
+
+  <!-- Contenido de la publicación -->
+  <ion-card-content color="secondary">
+    <ion-img src="{{ postImage }}"></ion-img>
+    <p>{{ caption }}</p>
+  </ion-card-content>
+
+  <!-- Acciones de la publicación (por ejemplo, botones de Me gusta y Comentar) -->
+ 
+</ion-card>
+
