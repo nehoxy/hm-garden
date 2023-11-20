@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Publicacion } from '../models/publicacion';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CrudPublicacionService } from './services/crud-publicacion.service';
+import { AuthService } from '../shared/services/auth.service';
 
 @Component({
   selector: 'app-publicar',
@@ -11,6 +12,7 @@ import { CrudPublicacionService } from './services/crud-publicacion.service';
 export class PublicarPage implements OnInit {
   postTitle: string = '';
   postContent: string = '';
+  userId!:any
   coleccionPublicaciones: Publicacion[] = [];
 
   publicacionForm = new FormGroup ({
@@ -20,12 +22,13 @@ export class PublicarPage implements OnInit {
     
 })
 
-  constructor(public crudPublicacion:CrudPublicacionService) { }
+  constructor(public crudPublicacion:CrudPublicacionService, public authService:AuthService ) { }
 
   ngOnInit() {
+    this.userId = this.authService.getUid()
   }
 
-  async agregarProducto(){
+  async crearPublicacion(){
     if (this.publicacionForm.valid){
       const date = new Date();
       const hour = date.getHours();

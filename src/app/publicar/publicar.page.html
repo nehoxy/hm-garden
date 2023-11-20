@@ -5,20 +5,23 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-list color="secondary">
-    <ion-item color="secondary">
-      <ion-label position="floating">Título</ion-label>
-      <ion-input [(ngModel)]="postTitle" name="postTitle" type="text"></ion-input>
-    </ion-item>
-    <ion-item color="secondary">
-      <ion-label position="floating">Descripción</ion-label>
-      <ion-textarea [(ngModel)]="postContent" name="postContent"></ion-textarea>
-    </ion-item>
-    <ion-item color="secondary">
-      <ion-label position="floating">Imagen</ion-label>
-      <ion-input [(ngModel)]="postTitle" name="postTitle" type="text"></ion-input>
-    </ion-item>
-  </ion-list>
+  <form [formGroup]="publicacionForm">
+    <ion-list color="secondary">
+      <ion-item color="secondary">
+        <ion-label position="floating">Título</ion-label>
+        <ion-input [formControl]="publicacionForm.controls.titulo" name="postTitle" type="text"></ion-input>
+      </ion-item>
+      <ion-item color="secondary">
+        <ion-label position="floating">Descripción</ion-label>
+        <ion-textarea [formControl]="publicacionForm.controls.descripcion" name="postContent"></ion-textarea>
+      </ion-item>
+      <ion-item color="secondary">
+        <ion-label position="floating">Imagen</ion-label>
+        <ion-input [formControl]="publicacionForm.controls.imagen" name="postTitle" type="text"></ion-input>
+      </ion-item>
+    </ion-list>
+  </form>
+  
 
-  <ion-button expand="full" (click)="savePost()">Publicar</ion-button>
+  <ion-button expand="full" (click)="crearPublicacion()">Publicar</ion-button>
 </ion-content>
