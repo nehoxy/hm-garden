@@ -21,11 +21,10 @@
         <label class="custom-file-upload">
           <input type="file" (change)="onFileSelected($event)" />
           <ion-icon name="attach" slot="start"></ion-icon> Subir imagen
-
         </label>
-        <ion-icon color="primary" *ngIf="imagenSubida" name="checkmark-circle-outline"></ion-icon>
+      <!-- Vista previa de la imagen seleccionada -->
+        <ion-img *ngIf="publicacionForm.value.imagen" [src]="publicacionForm.value.imagen"></ion-img>
       </ion-item>
-
     </ion-list>
   </form>
   
