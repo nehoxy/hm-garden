@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { CrudPublicacionService } from 'src/app/publicar/services/crud-publicacion.service';
 
 @Component({
   selector: 'app-card-publicacion',
@@ -6,17 +7,18 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./card-publicacion.component.scss'],
 })
 export class CardPublicacionComponent  implements OnInit {
-  @Input() profileImage!: string;
-  @Input() username!: string;
-  @Input() timestamp!: string;
-  @Input() postImage!: string;
-  @Input() caption!: string;
-  @Input() likes!: number;
-  @Input() comments!: number;
+  @Input() titulo!: string;
+  @Input() descripcion!: string;
+  @Input() imagen!: string;
+  @Input() date_hour!: string;
+  @Input() usuario!: string;
 
+  
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+  
+  }
 
   likePost() {
     // Lógica para manejar "Me gusta"

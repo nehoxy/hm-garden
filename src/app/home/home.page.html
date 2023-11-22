@@ -8,14 +8,12 @@
 
 <ion-content >
   <ion-list color="medium">
-    <app-card-publicacion *ngFor="let post of posts"
-              [profileImage]="post.profileImage"
-              [username]="post.username"
-              [timestamp]="post.timestamp"
-              [postImage]="post.postImage"
-              [caption]="post.caption"
-              [likes]="post.likes"
-              [comments]="post.comments">
+    <app-card-publicacion *ngFor="let post of coleccionPublicaciones"
+              [usuario]="post.usuario"
+              [titulo]="post.titulo"
+              [descripcion]="post.descripcion"
+              [imagen]="post.imagen"
+              [date_hour]="post.date_hour">
     </app-card-publicacion>
   </ion-list>
 </ion-content>

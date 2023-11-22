@@ -5,6 +5,8 @@ import { CrudPublicacionService } from './services/crud-publicacion.service';
 import { AuthService } from '../shared/services/auth.service';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
+import { Observable, map } from 'rxjs';
+
 
 @Component({
   selector: 'app-publicar',
@@ -16,6 +18,7 @@ export class PublicarPage implements OnInit {
   postContent: string = '';
   userId!:any
   imagenSubida:boolean = false;
+  nombreUsuario:string | null = null;;
   coleccionPublicaciones: Publicacion[] = [];
 
   publicacionForm = new FormGroup ({
@@ -37,9 +40,11 @@ export class PublicarPage implements OnInit {
         const date = new Date();
         const hour = date.getHours();
         const min = date.getMinutes();
-  
+        
         const imagenFile = this.publicacionForm.value.imagen as File | null | undefined;
         const id = this.afs.createId();
+
+        this.nombreUsuario = (await this.getNombreUsuarioPorId(this.userId).toPromise()) ?? null;
 
         if (imagenFile) {
           const imageUrl = await this.subirImagenAFS(`imagenes/${id}`, imagenFile);
@@ -49,7 +54,8 @@ export class PublicarPage implements OnInit {
             titulo: this.publicacionForm.value.titulo!,
             descripcion: this.publicacionForm.value.descripcion!,
             imagen: imageUrl,
-            date_hour: { date, hour, min }
+            date_hour: { date, hour, min },
+            usuario: this.nombreUsuario ?? 'Usuario desconocido'
           };
   
           await this.crudPublicacion.crearPublicacion(nuevaPublicacion);
@@ -89,5 +95,11 @@ export class PublicarPage implements OnInit {
       reject(error);
     });
   });
+  }
+
+  getNombreUsuarioPorId(userId: string): Observable<string | null> {
+    return this.afs.doc(`usuarios/${userId}`).valueChanges().pipe(
+      map((userData: any) => userData ? userData.nombre : null)
+    );
   }
 }

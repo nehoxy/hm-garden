@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Publicacion } from '../models/publicacion';
+import { CrudPublicacionService } from '../publicar/services/crud-publicacion.service';
 
 @Component({
   selector: 'app-home',
@@ -6,18 +8,14 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  posts = [
-    {
-      profileImage: 'ruta/imagen_perfil.jpg',
-      username: 'usuario1',
-      timestamp: 'hace 1 hora',
-      postImage: 'https://cdn.shopify.com/s/files/1/0150/6262/products/the_sill-variant-white_gloss-money_tree.jpg?v=1680542101',
-      caption: 'Descripción de la publicación...',
-      likes: 10,
-      comments: 5,
-    },
-    
-  ]
-  constructor() {}
+  coleccionPublicaciones : Publicacion[] = [];
+
+  constructor(public servicioCrud : CrudPublicacionService) {}
+
+  ngOnInit() :void {
+    this.servicioCrud.obtenerPublicacion().subscribe(publicacion => {
+      this.coleccionPublicaciones = publicacion;
+    }) 
+  }
 
 }

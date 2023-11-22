@@ -2,16 +2,16 @@
   <!-- Cabecera de la publicación -->
   <ion-card-header>
     <ion-thumbnail slot="start">
-      <ion-img src="{{ profileImage }}"></ion-img>
+      <ion-icon name="person-circle-outline"></ion-icon>
     </ion-thumbnail>
-    <ion-card-title>{{ username }}</ion-card-title>
-    <ion-card-subtitle>{{ timestamp }}</ion-card-subtitle>
+    <ion-card-title>{{ usuario}}</ion-card-title>
+    <ion-card-subtitle>{{date_hour}}</ion-card-subtitle>
   </ion-card-header>
 
   <!-- Contenido de la publicación -->
   <ion-card-content color="secondary">
-    <ion-img src="{{ postImage }}"></ion-img>
-    <p>{{ caption }}</p>
+    <ion-img src="{{ imagen }}"></ion-img>
+    <p>{{ descripcion }}</p>
   </ion-card-content>
 
   <!-- Acciones de la publicación (por ejemplo, botones de Me gusta y Comentar) -->
@@ -19,13 +19,13 @@
     <ion-col>
       <ion-button fill="clear" (click)="likePost()">
         <ion-icon name="heart"></ion-icon>
-        {{ likes }}
+        
       </ion-button>
     </ion-col>
     <ion-col>
       <ion-button fill="clear" (click)="commentPost()">
         <ion-icon name="chatbubbles"></ion-icon>
-        {{ comments }}
+        
       </ion-button>
     </ion-col>
   </ion-row>
