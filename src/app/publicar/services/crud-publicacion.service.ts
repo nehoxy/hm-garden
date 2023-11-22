@@ -56,4 +56,8 @@ export class CrudPublicacionService {
       throw error;
     }
   }
+
+  obtenerPublicacion() {
+    return this.publicacionesColeccion.snapshotChanges().pipe(map(action => action.map(a => a.payload.doc.data())))
+  }
 }

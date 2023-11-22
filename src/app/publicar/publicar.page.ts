@@ -15,6 +15,7 @@ export class PublicarPage implements OnInit {
   postTitle: string = '';
   postContent: string = '';
   userId!:any
+  imagenSubida:boolean = false;
   coleccionPublicaciones: Publicacion[] = [];
 
   publicacionForm = new FormGroup ({
@@ -69,7 +70,7 @@ export class PublicarPage implements OnInit {
   onFileSelected(event: any): void {
     const file = event.target.files[0];
     // Mostrar la vista previa de la imagen seleccionada
-    this.publicacionForm.patchValue({ imagen: file });
+    this.imagenSubida = true
   }
 
   private async subirImagenAFS(path: string, file: File): Promise<string> {
