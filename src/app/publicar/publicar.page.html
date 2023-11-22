@@ -8,16 +8,22 @@
   <form [formGroup]="publicacionForm">
     <ion-list color="secondary">
       <ion-item color="secondary">
-        <ion-label position="floating">Título</ion-label>
-        <ion-input [formControl]="publicacionForm.controls.titulo" name="postTitle" type="text"></ion-input>
+        
+        <ion-input label="Titulo" [formControl]="publicacionForm.controls.titulo" name="postTitle" type="text"></ion-input>
       </ion-item>
       <ion-item color="secondary">
-        <ion-label position="floating">Descripción</ion-label>
-        <ion-textarea [formControl]="publicacionForm.controls.descripcion" name="postContent"></ion-textarea>
+        
+        <ion-textarea label="Descripcion" [formControl]="publicacionForm.controls.descripcion" name="postContent"></ion-textarea>
       </ion-item>
+      
       <ion-item color="secondary">
-        <ion-label position="floating">Imagen</ion-label>
-        <ion-input [formControl]="publicacionForm.controls.imagen" name="postTitle" type="text"></ion-input>
+        
+        <label class="custom-file-upload">
+          <input type="file" (change)="onFileSelected($event)" />
+          <ion-icon name="attach" slot="start"></ion-icon> Subir imagen
+        </label>
+      <!-- Vista previa de la imagen seleccionada -->
+        <ion-img *ngIf="publicacionForm.value.imagen" [src]="publicacionForm.value.imagen"></ion-img>
       </ion-item>
     </ion-list>
   </form>

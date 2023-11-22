@@ -1,3 +1,16 @@
 ion-list{
     background-color: #CCD5AE;
 }
+
+.custom-file-upload {
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    color: #fff; /* Puedes ajustar el color según tu diseño */
+    background-color: #BB9E8B; /* Puedes ajustar el color según tu diseño */
+    border-radius: 5px;
+  }
+  
+  .custom-file-upload input {
+    display: none;
+  }
